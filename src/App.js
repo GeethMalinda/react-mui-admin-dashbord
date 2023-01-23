@@ -1,5 +1,6 @@
 import { ColorModeContext , useMode } from "./theme";
 import { CssBaseline , ThemeProvider } from "@mui/material";
+import Topbar from "./scenes/global/Topbar";
 
 //css base line = this will reset the css default
 function App() {
@@ -12,7 +13,7 @@ function App() {
           <CssBaseline/>
           <div className="app">
             <main className="content">
-
+                <Topbar/>
             </main>
           </div>
         </ThemeProvider>
