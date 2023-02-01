@@ -4,6 +4,7 @@ import { ColorModeContext , useMode } from "./theme";
 import { CssBaseline , ThemeProvider } from "@mui/material";
 import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashbord";
+import Sidebar from "./scenes/global/Sidebar";
 // import Sidebar from "./scenes/global/Sidebar";
 // import Team from "./scenes/team";
 // import Invoices from "./scenes/invoices";
@@ -26,7 +27,8 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline/>
           <div className="app">
-            <main className="content">
+              <Sidebar/>
+              <main className="content">
                 <Topbar/>
                 <Routes>
                     <Route path='/' element = {<Dashboard/>}/>
@@ -41,7 +43,7 @@ function App() {
                     {/*<Route path="/calendar" element={<Calendar />} />*/}
                     {/*<Route path="/geography" element={<Geography />} />*/}
                 </Routes>
-            </main>
+              </main>
           </div>
         </ThemeProvider>
       </ColorModeContext.Provider>
