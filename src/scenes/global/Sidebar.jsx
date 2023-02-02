@@ -3,7 +3,19 @@ import "react-pro-sidebar/dist/css/styles.css";
 import {Typography,Box,IconButton,useTheme} from "@mui/material";
 import {Link} from "react-router-dom"
 import {tokens} from "../../theme";
-
+import {Menu, MenuItem, ProSidebar} from "react-pro-sidebar";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 const Sidebar = () => {
     const theme =  useTheme();
     const colors = tokens(theme.palette.mode)
@@ -11,7 +23,7 @@ const Sidebar = () => {
     const [selected ,  setSelected] = useState("Dashboard");
 
     return (
-        <Box>
+        <Box
             sx = {{
                 "& .pro-sidebar-inner": {
                     background: `${colors.primary[400]} !important`
@@ -28,7 +40,78 @@ const Sidebar = () => {
             "& .pro-inner-item:active": {
                 color:"#6870fa !important"
             },
-        }}
+        }}>
+            <ProSidebar collapsed={isCollapsed}>
+                <Menu iconShape="square">
+                    <MenuItem
+                        onClick={() => setIsCollapsed(!isCollapsed)}
+                        icon={isCollapsed ? <MenuOutlinedIcon/> : undefined}
+                        style={{
+                            margin: "10px 0 20px 0",
+                            color:colors.grey[100]
+                        }}
+                    >
+                        {!isCollapsed && (
+                            <Box
+                                display="flex"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                ml="15px"
+                            >
+                                <Typography
+                                    variant="h3"
+                                    color={colors.grey[100]}
+                                >
+                                    ADMIN
+                                </Typography>
+                                <IconButton
+                                    onClick={() => setIsCollapsed(!isCollapsed)}
+                                >
+                                    <MenuOutlinedIcon/>
+                                </IconButton>
+
+                            </Box>
+
+                        )}
+                    </MenuItem>
+                        {!isCollapsed && (
+                            <Box mb="25px">
+                                <Box
+                                    display="flex"
+                                    justifyContent="center"
+                                    alignItems="center"
+                                >
+                                    <img
+                                        alt="profile-user"
+                                        width="100px"
+                                        height="100px"
+                                        src={`../../assets/user.png`}
+                                        style={{/*border:"3px solid #899DC1" ,*/ backgroundSize:"cover", cursor:"pointer",borderRadius:"50%"}}
+                                    />
+                                </Box>
+                                <Box textAlign = 'center'>
+                                    <Typography
+                                        variant="h2"
+                                        color={colors.grey[100]}
+                                        fontWeight="bold"
+                                        sx = {{m:"10px 0 0 0"}}
+                                    >
+                                        Geeth M
+                                    </Typography>
+                                    <Typography
+                                        variant="h5"
+                                        color={colors.greenAccent[500]}
+                                    >
+                                        Wp main Admin
+                                    </Typography>
+
+                                </Box>
+                            </Box>
+                        )}
+
+
+                </Menu>
+            </ProSidebar>
         </Box>
     );
 };
