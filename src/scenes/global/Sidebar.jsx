@@ -132,7 +132,7 @@ const Sidebar = () => {
                             <Item
                                 title="Dashboard"
                                 to="/"
-                                icon={<MenuOutlinedIcon/>}
+                                icon={<HomeOutlinedIcon/>}
                                 selected={selected}
                                 setSelected={setSelected}
                             />
