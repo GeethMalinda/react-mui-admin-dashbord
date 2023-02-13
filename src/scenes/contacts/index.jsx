@@ -96,4 +96,4 @@ const Contacts = () => {
     );
 };
 
-export default Team;
+export default Contacts;
